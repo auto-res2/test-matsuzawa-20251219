@@ -1,6 +1,5 @@
 defaults:
   - _self_
-  - optional runs: proposed-resnet18-cifar10
 
 run: null
 run_id: null
