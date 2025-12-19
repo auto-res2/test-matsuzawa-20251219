@@ -2289,3 +2289,137 @@ Traceback (most recent call last):
 ValueError: Config missing 'dataset' section. Check run config: config/runs/proposed-resnet18-cifar10.yaml
 
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Using CPython 3.11.14
+Creating virtual environment at: .venv
+Resolved 147 packages in 105ms
+Installed 97 packages in 289ms
+ + aiohappyeyeballs==2.6.1
+ + aiohttp==3.13.2
+ + aiosignal==1.4.0
+ + alembic==1.17.2
+ + annotated-types==0.7.0
+ + antlr4-python3-runtime==4.9.3
+ + anyio==4.12.0
+ + attrs==25.4.0
+ + certifi==2025.11.12
+ + charset-normalizer==3.4.4
+ + click==8.3.1
+ + colorlog==6.10.1
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + datasets==4.4.1
+ + dill==0.4.0
+ + filelock==3.20.1
+ + fonttools==4.61.1
+ + frozenlist==1.8.0
+ + fsspec==2025.10.0
+ + gitdb==4.0.12
+ + gitpython==3.1.45
+ + greenlet==3.3.0
+ + h11==0.16.0
+ + hf-xet==1.2.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==0.36.0
+ + hydra-core==1.3.2
+ + idna==3.11
+ + jinja2==3.1.6
+ + joblib==1.5.3
+ + kiwisolver==1.4.9
+ + mako==1.3.10
+ + markupsafe==3.0.3
+ + matplotlib==3.10.8
+ + mpmath==1.3.0
+ + multidict==6.7.0
+ + multiprocess==0.70.18
+ + networkx==3.6.1
+ + numpy==2.3.5
+ + nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cudnn-cu12==9.10.2.21
+ + nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufile-cu12==1.13.1.3
+ + nvidia-curand-cu12==10.3.9.90
+ + nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparselt-cu12==0.7.1
+ + nvidia-nccl-cu12==2.27.5
+ + nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvshmem-cu12==3.3.20
+ + nvidia-nvtx-cu12==12.8.90
+ + omegaconf==2.3.0
+ + optuna==4.6.0
+ + packaging==25.0
+ + pandas==2.3.3
+ + pillow==12.0.0
+ + platformdirs==4.5.1
+ + propcache==0.4.1
+ + protobuf==6.33.2
+ + pyarrow==22.0.0
+ + pydantic==2.12.5
+ + pydantic-core==2.41.5
+ + pyparsing==3.2.5
+ + python-dateutil==2.9.0.post0
+ + pytz==2025.2
+ + pyyaml==6.0.3
+ + regex==2025.11.3
+ + requests==2.32.5
+ + safetensors==0.7.0
+ + scal-optimization==0.1.0 (from file:///workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219)
+ + scikit-learn==1.8.0
+ + scipy==1.16.3
+ + seaborn==0.13.2
+ + sentry-sdk==2.48.0
+ + six==1.17.0
+ + smmap==5.0.2
+ + sqlalchemy==2.0.45
+ + sympy==1.14.0
+ + threadpoolctl==3.6.0
+ + tokenizers==0.22.1
+ + torch==2.9.1
+ + torchvision==0.24.1
+ + tqdm==4.67.1
+ + transformers==4.57.3
+ + triton==3.5.1
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+ + tzdata==2025.3
+ + urllib3==2.6.2
+ + wandb==0.23.1
+ + xxhash==3.6.0
+ + yarl==1.22.0
+  0%|          | 0.00/170M [00:00<?, ?B/s]  0%|          | 32.8k/170M [00:00<14:44, 193kB/s]  0%|          | 65.5k/170M [00:00<15:18, 185kB/s]  0%|          | 98.3k/170M [00:00<15:22, 185kB/s]  0%|          | 229k/170M [00:00<07:05, 401kB/s]   0%|          | 459k/170M [00:00<03:57, 715kB/s]  1%|          | 918k/170M [00:01<02:06, 1.34MB/s]  1%|          | 1.84M/170M [00:01<01:05, 2.56MB/s]  2%|▏         | 3.28M/170M [00:01<00:38, 4.30MB/s]  4%|▎         | 6.23M/170M [00:01<00:20, 8.05MB/s]  5%|▌         | 9.37M/170M [00:01<00:12, 12.7MB/s]  6%|▋         | 10.9M/170M [00:01<00:12, 12.5MB/s]  7%|▋         | 12.6M/170M [00:02<00:13, 11.7MB/s]  9%|▉         | 15.7M/170M [00:02<00:11, 13.4MB/s] 11%|█         | 18.9M/170M [00:02<00:10, 14.6MB/s] 13%|█▎        | 22.0M/170M [00:02<00:09, 15.2MB/s] 15%|█▍        | 24.9M/170M [00:02<00:09, 15.4MB/s] 16%|█▋        | 28.0M/170M [00:02<00:09, 15.8MB/s] 18%|█▊        | 31.0M/170M [00:03<00:08, 16.0MB/s] 20%|█▉        | 34.0M/170M [00:03<00:08, 16.1MB/s] 22%|██▏       | 37.1M/170M [00:03<00:08, 16.2MB/s] 24%|██▎       | 40.1M/170M [00:03<00:08, 16.3MB/s] 25%|██▌       | 43.3M/170M [00:03<00:07, 16.6MB/s] 27%|██▋       | 46.4M/170M [00:04<00:07, 16.6MB/s] 29%|██▉       | 49.3M/170M [00:04<00:07, 16.4MB/s] 31%|███       | 52.3M/170M [00:04<00:07, 16.3MB/s] 32%|███▏      | 55.2M/170M [00:04<00:07, 16.3MB/s] 34%|███▍      | 58.5M/170M [00:04<00:06, 16.6MB/s] 36%|███▌      | 61.6M/170M [00:04<00:06, 16.8MB/s] 38%|███▊      | 64.7M/170M [00:05<00:06, 16.7MB/s] 40%|███▉      | 67.7M/170M [00:05<00:06, 16.7MB/s] 42%|████▏     | 70.9M/170M [00:05<00:05, 16.9MB/s] 43%|████▎     | 74.1M/170M [00:05<00:05, 17.0MB/s] 45%|████▌     | 77.3M/170M [00:05<00:05, 16.9MB/s] 47%|████▋     | 80.3M/170M [00:06<00:05, 16.8MB/s] 49%|████▉     | 83.4M/170M [00:06<00:05, 16.9MB/s] 51%|█████     | 86.5M/170M [00:06<00:04, 16.9MB/s] 53%|█████▎    | 89.8M/170M [00:06<00:04, 17.0MB/s] 54%|█████▍    | 92.8M/170M [00:06<00:04, 16.8MB/s] 56%|█████▌    | 95.9M/170M [00:07<00:04, 16.8MB/s] 58%|█████▊    | 98.9M/170M [00:07<00:04, 16.7MB/s] 60%|█████▉    | 102M/170M [00:07<00:04, 16.6MB/s]  62%|██████▏   | 105M/170M [00:07<00:03, 16.7MB/s] 63%|██████▎   | 108M/170M [00:07<00:03, 16.6MB/s] 65%|██████▌   | 111M/170M [00:07<00:03, 16.5MB/s] 67%|██████▋   | 114M/170M [00:08<00:03, 16.4MB/s] 69%|██████▊   | 117M/170M [00:08<00:03, 16.5MB/s] 71%|███████   | 120M/170M [00:08<00:03, 16.6MB/s] 72%|███████▏  | 124M/170M [00:08<00:02, 16.6MB/s] 74%|███████▍  | 126M/170M [00:08<00:02, 16.4MB/s] 76%|███████▌  | 129M/170M [00:09<00:02, 16.4MB/s] 78%|███████▊  | 132M/170M [00:09<00:02, 16.5MB/s] 80%|███████▉  | 136M/170M [00:09<00:02, 16.7MB/s] 81%|████████▏ | 139M/170M [00:09<00:01, 16.6MB/s] 83%|████████▎ | 142M/170M [00:09<00:01, 16.7MB/s] 85%|████████▍ | 145M/170M [00:09<00:01, 16.7MB/s] 87%|████████▋ | 148M/170M [00:10<00:01, 16.4MB/s] 88%|████████▊ | 151M/170M [00:10<00:01, 16.4MB/s] 90%|█████████ | 154M/170M [00:10<00:01, 16.3MB/s] 92%|█████████▏| 157M/170M [00:10<00:00, 16.4MB/s] 94%|█████████▍| 160M/170M [00:10<00:00, 16.7MB/s] 96%|█████████▌| 163M/170M [00:11<00:00, 16.7MB/s] 97%|█████████▋| 166M/170M [00:11<00:00, 18.9MB/s] 99%|█████████▊| 168M/170M [00:11<00:00, 17.2MB/s]100%|█████████▉| 170M/170M [00:11<00:00, 16.0MB/s]100%|██████████| 170M/170M [00:11<00:00, 14.8MB/s]
+Error executing job with overrides: ['run_id=proposed-resnet18-cifar10', 'results_dir=.research/results', 'mode=trial']
+Traceback (most recent call last):
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/src/train.py", line 944, in main
+    metrics = trainer.run()
+              ^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/src/train.py", line 698, in run
+    model = self.setup_model()
+            ^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/src/train.py", line 324, in setup_model
+    model = build_model(self.cfg.model)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/src/model.py", line 77, in build_model
+    model = ResNet18(num_classes=num_classes, pretrained=pretrained)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/src/model.py", line 14, in __init__
+    self.model = models.resnet18(pretrained=pretrained, weights=None)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/lib/python3.11/site-packages/torchvision/models/_utils.py", line 142, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/lib/python3.11/site-packages/torchvision/models/_utils.py", line 228, in inner_wrapper
+    return builder(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/lib/python3.11/site-packages/torchvision/models/resnet.py", line 705, in resnet18
+    return _resnet(BasicBlock, [2, 2, 2, 2], weights, progress, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/lib/python3.11/site-packages/torchvision/models/resnet.py", line 298, in _resnet
+    model = ResNet(block, layers, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ResNet.__init__() got an unexpected keyword argument 'pretrained'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

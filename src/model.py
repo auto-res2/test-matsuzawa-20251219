@@ -11,7 +11,8 @@ class ResNet18(nn.Module):
     def __init__(self, num_classes: int = 10, pretrained: bool = False):
         super().__init__()
         self.num_classes = num_classes
-        self.model = models.resnet18(pretrained=pretrained, weights=None)
+        weights = 'IMAGENET1K_V1' if pretrained else None
+        self.model = models.resnet18(weights=weights)
         
         # Adjust final layer for num_classes
         num_features = self.model.fc.in_features
@@ -31,7 +32,8 @@ class ResNet50(nn.Module):
     def __init__(self, num_classes: int = 100, pretrained: bool = False):
         super().__init__()
         self.num_classes = num_classes
-        self.model = models.resnet50(pretrained=pretrained, weights=None)
+        weights = 'IMAGENET1K_V1' if pretrained else None
+        self.model = models.resnet50(weights=weights)
         
         # Adjust final layer for num_classes
         num_features = self.model.fc.in_features
