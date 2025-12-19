@@ -163,3 +163,312 @@
 [2025-12-19 07:30:36,027][__main__][INFO] - Training completed successfully
 === [TRIAL RUN] PASSED for proposed-resnet18-cifar10 at Fri Dec 19 07:30:36 UTC 2025 ===
 
+=== [UV SYNC] Start at Fri Dec 19 07:31:12 UTC 2025 ===
+=== [UV SYNC] Finished successfully at Fri Dec 19 07:31:13 UTC 2025 ===
+=== [FULL EXPERIMENT] Start for comparative-1-resnet18-cifar10 at Fri Dec 19 07:31:13 UTC 2025 ===
+[2025-12-19 07:31:13,957][__main__][INFO] - Starting experiment: run_id=comparative-1-resnet18-cifar10, mode=full
+[2025-12-19 07:31:13,957][__main__][INFO] - Results directory: .research/results
+[2025-12-19 07:31:13,957][__main__][INFO] - Executing: /workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/bin/python3 -u -m src.train run_id=comparative-1-resnet18-cifar10 results_dir=.research/results mode=full
+[2025-12-19 07:31:26,663][__main__][INFO] - Using device: cuda
+[2025-12-19 07:31:26,664][__main__][INFO] - Results directory: .research/results
+[2025-12-19 07:31:28,749][__main__][INFO] - WandB initialized: https://wandb.ai/gengaru617-personal/2025-11-19/runs/comparative-1-resnet18-cifar10
+WandB run URL: https://wandb.ai/gengaru617-personal/2025-11-19/runs/comparative-1-resnet18-cifar10
+[2025-12-19 07:31:28,749][__main__][INFO] - Starting training: comparative-1-resnet18-cifar10
+[2025-12-19 07:31:28,750][__main__][INFO] - Loading CIFAR-10 dataset...
+[2025-12-19 07:31:28,750][src.preprocess][INFO] - Loading CIFAR-10 from .cache
+[2025-12-19 07:31:44,005][src.preprocess][INFO] - Dataset loaded: 50000 train, 10000 test samples
+[2025-12-19 07:31:44,017][__main__][INFO] - Train samples: 42500, Val samples: 7500, Test samples: 10000
+[2025-12-19 07:31:44,017][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:31:44,342][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:31:44,343][__main__][INFO] - Starting Optuna hyperparameter optimization
+[2025-12-19 07:31:44,346][__main__][INFO] - Trial 0 with params: {'learning_rate': 0.0005611516415334506, 'weight_decay': 0.0007969454818643932, 'beta1': 0.9231993941811405, 'beta2': 0.9953879263577733}
+[2025-12-19 07:31:44,346][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:31:44,440][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:31:44,441][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:34:56,724] Trial 0 finished with value: 0.7240824830734124 and parameters: {'learning_rate': 0.0005611516415334506, 'weight_decay': 0.0007969454818643932, 'beta1': 0.9231993941811405, 'beta2': 0.9953879263577733}. Best is trial 0 with value: 0.7240824830734124.
+[2025-12-19 07:34:56,733][__main__][INFO] - Trial 1 with params: {'learning_rate': 0.0002051338263087451, 'weight_decay': 2.0511104188433963e-05, 'beta1': 0.8558083612168199, 'beta2': 0.9977955853119744}
+[2025-12-19 07:34:56,734][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:34:56,881][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:34:56,882][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:38:05,709] Trial 1 finished with value: 0.7542424818216744 and parameters: {'learning_rate': 0.0002051338263087451, 'weight_decay': 2.0511104188433963e-05, 'beta1': 0.8558083612168199, 'beta2': 0.9977955853119744}. Best is trial 0 with value: 0.7240824830734124.
+[2025-12-19 07:38:05,716][__main__][INFO] - Trial 2 with params: {'learning_rate': 0.0015930522616241021, 'weight_decay': 0.0002607024758370766, 'beta1': 0.8520584494295802, 'beta2': 0.9987291886694579}
+[2025-12-19 07:38:05,717][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:38:05,857][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:38:05,858][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:41:15,673] Trial 2 finished with value: 0.6991183091018159 and parameters: {'learning_rate': 0.0015930522616241021, 'weight_decay': 0.0002607024758370766, 'beta1': 0.8520584494295802, 'beta2': 0.9987291886694579}. Best is trial 2 with value: 0.6991183091018159.
+[2025-12-19 07:41:15,680][__main__][INFO] - Trial 3 with params: {'learning_rate': 0.004622589001020831, 'weight_decay': 2.6587543983272695e-05, 'beta1': 0.86818249672071, 'beta2': 0.9916506405886809}
+[2025-12-19 07:41:15,681][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:41:15,828][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:41:15,829][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:44:24,079] Trial 3 finished with value: 0.704762148655067 and parameters: {'learning_rate': 0.004622589001020831, 'weight_decay': 2.6587543983272695e-05, 'beta1': 0.86818249672071, 'beta2': 0.9916506405886809}. Best is trial 2 with value: 0.6991183091018159.
+[2025-12-19 07:44:24,086][__main__][INFO] - Trial 4 with params: {'learning_rate': 0.0004059611610484307, 'weight_decay': 0.00011207606211860574, 'beta1': 0.8931945018642116, 'beta2': 0.9926210622617824}
+[2025-12-19 07:44:24,086][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:44:24,233][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:44:24,234][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:47:33,065] Trial 4 finished with value: 0.6832550935826059 and parameters: {'learning_rate': 0.0004059611610484307, 'weight_decay': 0.00011207606211860574, 'beta1': 0.8931945018642116, 'beta2': 0.9926210622617824}. Best is trial 4 with value: 0.6832550935826059.
+[2025-12-19 07:47:33,071][__main__][INFO] - Trial 5 with params: {'learning_rate': 0.0016738085788752138, 'weight_decay': 1.9010245319870364e-05, 'beta1': 0.8792144648535218, 'beta2': 0.9932972565896432}
+[2025-12-19 07:47:33,072][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:47:33,217][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:47:33,218][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:50:41,329] Trial 5 finished with value: 0.617268401182304 and parameters: {'learning_rate': 0.0016738085788752138, 'weight_decay': 1.9010245319870364e-05, 'beta1': 0.8792144648535218, 'beta2': 0.9932972565896432}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 07:50:41,335][__main__][INFO] - Trial 6 with params: {'learning_rate': 0.000816845589476017, 'weight_decay': 0.00037183641805732076, 'beta1': 0.8699673782158359, 'beta2': 0.9946281099457225}
+[2025-12-19 07:50:41,336][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:50:41,484][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:50:41,484][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:53:51,817] Trial 6 finished with value: 0.6996851295737897 and parameters: {'learning_rate': 0.000816845589476017, 'weight_decay': 0.00037183641805732076, 'beta1': 0.8699673782158359, 'beta2': 0.9946281099457225}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 07:53:51,824][__main__][INFO] - Trial 7 with params: {'learning_rate': 0.0015304852121831463, 'weight_decay': 1.2385137298860926e-05, 'beta1': 0.9107544851901438, 'beta2': 0.9915347171131856}
+[2025-12-19 07:53:51,825][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:53:51,971][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:53:51,972][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 07:57:01,720] Trial 7 finished with value: 0.6245818921064926 and parameters: {'learning_rate': 0.0015304852121831463, 'weight_decay': 1.2385137298860926e-05, 'beta1': 0.9107544851901438, 'beta2': 0.9915347171131856}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 07:57:01,726][__main__][INFO] - Trial 8 with params: {'learning_rate': 0.00013492834268013249, 'weight_decay': 0.000790261954970823, 'beta1': 0.9465632033074559, 'beta2': 0.9972755761330482}
+[2025-12-19 07:57:01,727][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:57:01,872][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:57:01,873][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:00:11,491] Trial 8 finished with value: 0.7823134094981824 and parameters: {'learning_rate': 0.00013492834268013249, 'weight_decay': 0.000790261954970823, 'beta1': 0.9465632033074559, 'beta2': 0.9972755761330482}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 08:00:11,497][__main__][INFO] - Trial 9 with params: {'learning_rate': 0.0004066563313514797, 'weight_decay': 1.5679933916722995e-05, 'beta1': 0.9184233026512156, 'beta2': 0.9939613724436565}
+[2025-12-19 08:00:11,498][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:00:11,644][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:00:11,644][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:03:22,149] Trial 9 finished with value: 0.6563397686360246 and parameters: {'learning_rate': 0.0004066563313514797, 'weight_decay': 1.5679933916722995e-05, 'beta1': 0.9184233026512156, 'beta2': 0.9939613724436565}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 08:03:22,171][__main__][INFO] - Trial 10 with params: {'learning_rate': 0.008154094133121435, 'weight_decay': 5.3389437745561126e-05, 'beta1': 0.8872537687242356, 'beta2': 0.9901616568805334}
+[2025-12-19 08:03:22,172][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:03:22,313][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:03:22,314][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:06:33,118] Trial 10 finished with value: 0.8587023343070078 and parameters: {'learning_rate': 0.008154094133121435, 'weight_decay': 5.3389437745561126e-05, 'beta1': 0.8872537687242356, 'beta2': 0.9901616568805334}. Best is trial 5 with value: 0.617268401182304.
+[2025-12-19 08:06:33,140][__main__][INFO] - Trial 11 with params: {'learning_rate': 0.0020124870829750945, 'weight_decay': 1.1952270129143866e-05, 'beta1': 0.9123496312706739, 'beta2': 0.992059293923689}
+[2025-12-19 08:06:33,141][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:06:33,283][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:06:33,283][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:09:43,882] Trial 11 finished with value: 0.6116877137604406 and parameters: {'learning_rate': 0.0020124870829750945, 'weight_decay': 1.1952270129143866e-05, 'beta1': 0.9123496312706739, 'beta2': 0.992059293923689}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:09:43,903][__main__][INFO] - Trial 12 with params: {'learning_rate': 0.002851608505267982, 'weight_decay': 5.1025557649775566e-05, 'beta1': 0.9358926563748665, 'beta2': 0.993204821010015}
+[2025-12-19 08:09:43,904][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:09:44,045][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:09:44,046][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:12:53,936] Trial 12 finished with value: 0.6255162368386479 and parameters: {'learning_rate': 0.002851608505267982, 'weight_decay': 5.1025557649775566e-05, 'beta1': 0.9358926563748665, 'beta2': 0.993204821010015}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:12:53,957][__main__][INFO] - Trial 13 with params: {'learning_rate': 0.002616625977001778, 'weight_decay': 3.841288543549781e-05, 'beta1': 0.8842515993737756, 'beta2': 0.9955758054882023}
+[2025-12-19 08:12:53,958][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:12:54,099][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:12:54,100][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:16:03,617] Trial 13 finished with value: 0.6454112100399146 and parameters: {'learning_rate': 0.002616625977001778, 'weight_decay': 3.841288543549781e-05, 'beta1': 0.8842515993737756, 'beta2': 0.9955758054882023}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:16:03,638][__main__][INFO] - Trial 14 with params: {'learning_rate': 0.0013567203634153194, 'weight_decay': 1.0216759819624258e-05, 'beta1': 0.9038397893036573, 'beta2': 0.9900760334035326}
+[2025-12-19 08:16:03,639][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:16:03,780][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:16:03,781][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:19:15,087] Trial 14 finished with value: 0.6338607098086405 and parameters: {'learning_rate': 0.0013567203634153194, 'weight_decay': 1.0216759819624258e-05, 'beta1': 0.9038397893036573, 'beta2': 0.9900760334035326}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:19:15,107][__main__][INFO] - Trial 15 with params: {'learning_rate': 0.0033769157584747087, 'weight_decay': 0.00011364695031944961, 'beta1': 0.8739529430391089, 'beta2': 0.991949747611809}
+[2025-12-19 08:19:15,107][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:19:15,248][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:19:15,249][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:22:26,301] Trial 15 finished with value: 0.7392316985938509 and parameters: {'learning_rate': 0.0033769157584747087, 'weight_decay': 0.00011364695031944961, 'beta1': 0.8739529430391089, 'beta2': 0.991949747611809}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:22:26,321][__main__][INFO] - Trial 16 with params: {'learning_rate': 0.008462585465235414, 'weight_decay': 2.954168975504419e-05, 'beta1': 0.9014604804377417, 'beta2': 0.9930851935943968}
+[2025-12-19 08:22:26,322][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:22:26,464][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:22:26,464][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:25:35,684] Trial 16 finished with value: 0.7728882765365859 and parameters: {'learning_rate': 0.008462585465235414, 'weight_decay': 2.954168975504419e-05, 'beta1': 0.9014604804377417, 'beta2': 0.9930851935943968}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:25:35,705][__main__][INFO] - Trial 17 with params: {'learning_rate': 0.0008937047713513676, 'weight_decay': 7.774297606532882e-05, 'beta1': 0.9264370407185866, 'beta2': 0.9909682235614266}
+[2025-12-19 08:25:35,706][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:25:35,847][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:25:35,848][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:28:46,171] Trial 17 finished with value: 0.6395216952946227 and parameters: {'learning_rate': 0.0008937047713513676, 'weight_decay': 7.774297606532882e-05, 'beta1': 0.9264370407185866, 'beta2': 0.9909682235614266}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:28:46,191][__main__][INFO] - Trial 18 with params: {'learning_rate': 0.005149674960218586, 'weight_decay': 1.737676946729157e-05, 'beta1': 0.8800426390467841, 'beta2': 0.994114036747724}
+[2025-12-19 08:28:46,192][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:28:46,334][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:28:46,335][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:31:57,142] Trial 18 finished with value: 0.7069162069740942 and parameters: {'learning_rate': 0.005149674960218586, 'weight_decay': 1.737676946729157e-05, 'beta1': 0.8800426390467841, 'beta2': 0.994114036747724}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:31:57,163][__main__][INFO] - Trial 19 with params: {'learning_rate': 0.001744445783311214, 'weight_decay': 1.0348685436210733e-05, 'beta1': 0.8947168179674974, 'beta2': 0.9961258196014376}
+[2025-12-19 08:31:57,164][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 08:31:57,300][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 08:31:57,301][__main__][INFO] - Setting up Adam optimizer
+[I 2025-12-19 08:35:07,710] Trial 19 finished with value: 0.6271438088457463 and parameters: {'learning_rate': 0.001744445783311214, 'weight_decay': 1.0348685436210733e-05, 'beta1': 0.8947168179674974, 'beta2': 0.9961258196014376}. Best is trial 11 with value: 0.6116877137604406.
+[2025-12-19 08:35:07,715][__main__][INFO] - Best trial: 11
+[2025-12-19 08:35:07,716][__main__][INFO] - Best value: 0.6116877137604406
+[2025-12-19 08:35:07,716][__main__][INFO] - Best params: {'learning_rate': 0.0020124870829750945, 'weight_decay': 1.1952270129143866e-05, 'beta1': 0.9123496312706739, 'beta2': 0.992059293923689}
+[2025-12-19 08:35:07,718][__main__][INFO] - Using hyperparameters: {'learning_rate': 0.0020124870829750945, 'weight_decay': 1.1952270129143866e-05, 'beta1': 0.9123496312706739, 'beta2': 0.992059293923689}
+[2025-12-19 08:35:07,718][__main__][INFO] - Setting up Adam optimizer
+[2025-12-19 08:35:07,720][__main__][INFO] - Epoch 1/200
+[2025-12-19 08:35:15,655][__main__][INFO] - Train loss: 1.660532
+[2025-12-19 08:35:17,169][__main__][INFO] - Val loss: 1.753548, Val accuracy: 0.460933
+[2025-12-19 08:35:18,365][__main__][INFO] - New best - Test accuracy: 0.511900
+[2025-12-19 08:35:18,367][__main__][INFO] - Epoch 2/200
+[2025-12-19 08:35:26,185][__main__][INFO] - Train loss: 1.280260
+[2025-12-19 08:35:27,704][__main__][INFO] - Val loss: 1.307745, Val accuracy: 0.564933
+[2025-12-19 08:35:28,805][__main__][INFO] - New best - Test accuracy: 0.580800
+[2025-12-19 08:35:28,808][__main__][INFO] - Epoch 3/200
+[2025-12-19 08:35:36,712][__main__][INFO] - Train loss: 1.106997
+[2025-12-19 08:35:38,238][__main__][INFO] - Val loss: 1.121450, Val accuracy: 0.607467
+[2025-12-19 08:35:39,431][__main__][INFO] - New best - Test accuracy: 0.634600
+[2025-12-19 08:35:39,432][__main__][INFO] - Epoch 4/200
+[2025-12-19 08:35:47,245][__main__][INFO] - Train loss: 0.997600
+[2025-12-19 08:35:48,766][__main__][INFO] - Val loss: 1.124517, Val accuracy: 0.605600
+[2025-12-19 08:35:48,767][__main__][INFO] - First validation loss increase at epoch 3
+[2025-12-19 08:35:48,768][__main__][INFO] - Epoch 5/200
+[2025-12-19 08:35:56,762][__main__][INFO] - Train loss: 0.907520
+[2025-12-19 08:35:58,281][__main__][INFO] - Val loss: 0.933581, Val accuracy: 0.677600
+[2025-12-19 08:35:59,382][__main__][INFO] - New best - Test accuracy: 0.708500
+[2025-12-19 08:35:59,384][__main__][INFO] - Epoch 6/200
+[2025-12-19 08:36:07,399][__main__][INFO] - Train loss: 0.850144
+[2025-12-19 08:36:08,916][__main__][INFO] - Val loss: 0.909680, Val accuracy: 0.683333
+[2025-12-19 08:36:10,023][__main__][INFO] - New best - Test accuracy: 0.699900
+[2025-12-19 08:36:10,025][__main__][INFO] - Epoch 7/200
+[2025-12-19 08:36:17,937][__main__][INFO] - Train loss: 0.792205
+[2025-12-19 08:36:19,451][__main__][INFO] - Val loss: 0.862868, Val accuracy: 0.702400
+[2025-12-19 08:36:20,565][__main__][INFO] - New best - Test accuracy: 0.720200
+[2025-12-19 08:36:20,567][__main__][INFO] - Epoch 8/200
+[2025-12-19 08:36:29,212][__main__][INFO] - Train loss: 0.751074
+[2025-12-19 08:36:30,721][__main__][INFO] - Val loss: 0.860079, Val accuracy: 0.701333
+[2025-12-19 08:36:31,821][__main__][INFO] - New best - Test accuracy: 0.739000
+[2025-12-19 08:36:31,823][__main__][INFO] - Epoch 9/200
+[2025-12-19 08:36:40,002][__main__][INFO] - Train loss: 0.717020
+[2025-12-19 08:36:41,511][__main__][INFO] - Val loss: 0.780343, Val accuracy: 0.728400
+[2025-12-19 08:36:42,624][__main__][INFO] - New best - Test accuracy: 0.749900
+[2025-12-19 08:36:42,627][__main__][INFO] - Epoch 10/200
+[2025-12-19 08:36:50,506][__main__][INFO] - Train loss: 0.689250
+[2025-12-19 08:36:52,013][__main__][INFO] - Val loss: 0.791890, Val accuracy: 0.730667
+[2025-12-19 08:36:52,013][__main__][INFO] - Epoch 11/200
+[2025-12-19 08:36:59,842][__main__][INFO] - Train loss: 0.656685
+[2025-12-19 08:37:01,360][__main__][INFO] - Val loss: 0.797796, Val accuracy: 0.733067
+[2025-12-19 08:37:01,362][__main__][INFO] - Epoch 12/200
+[2025-12-19 08:37:09,242][__main__][INFO] - Train loss: 0.628432
+[2025-12-19 08:37:10,751][__main__][INFO] - Val loss: 0.699749, Val accuracy: 0.755333
+[2025-12-19 08:37:11,848][__main__][INFO] - New best - Test accuracy: 0.783400
+[2025-12-19 08:37:11,851][__main__][INFO] - Epoch 13/200
+[2025-12-19 08:37:19,769][__main__][INFO] - Train loss: 0.611853
+[2025-12-19 08:37:21,295][__main__][INFO] - Val loss: 0.716497, Val accuracy: 0.763867
+[2025-12-19 08:37:21,297][__main__][INFO] - Epoch 14/200
+[2025-12-19 08:37:29,234][__main__][INFO] - Train loss: 0.592798
+[2025-12-19 08:37:30,763][__main__][INFO] - Val loss: 0.688691, Val accuracy: 0.767867
+[2025-12-19 08:37:31,876][__main__][INFO] - New best - Test accuracy: 0.788900
+[2025-12-19 08:37:31,879][__main__][INFO] - Epoch 15/200
+[2025-12-19 08:37:39,781][__main__][INFO] - Train loss: 0.572772
+[2025-12-19 08:37:41,283][__main__][INFO] - Val loss: 0.659020, Val accuracy: 0.773733
+[2025-12-19 08:37:42,393][__main__][INFO] - New best - Test accuracy: 0.785600
+[2025-12-19 08:37:42,396][__main__][INFO] - Epoch 16/200
+[2025-12-19 08:37:50,397][__main__][INFO] - Train loss: 0.564104
+[2025-12-19 08:37:51,923][__main__][INFO] - Val loss: 0.653596, Val accuracy: 0.774933
+[2025-12-19 08:37:53,019][__main__][INFO] - New best - Test accuracy: 0.789000
+[2025-12-19 08:37:53,022][__main__][INFO] - Epoch 17/200
+[2025-12-19 08:38:01,181][__main__][INFO] - Train loss: 0.542064
+[2025-12-19 08:38:02,701][__main__][INFO] - Val loss: 0.619407, Val accuracy: 0.787867
+[2025-12-19 08:38:03,814][__main__][INFO] - New best - Test accuracy: 0.799600
+[2025-12-19 08:38:03,817][__main__][INFO] - Epoch 18/200
+[2025-12-19 08:38:11,752][__main__][INFO] - Train loss: 0.522204
+[2025-12-19 08:38:13,266][__main__][INFO] - Val loss: 0.633756, Val accuracy: 0.785067
+[2025-12-19 08:38:13,267][__main__][INFO] - Epoch 19/200
+[2025-12-19 08:38:21,409][__main__][INFO] - Train loss: 0.508329
+[2025-12-19 08:38:22,944][__main__][INFO] - Val loss: 0.597308, Val accuracy: 0.794800
+[2025-12-19 08:38:24,044][__main__][INFO] - New best - Test accuracy: 0.811200
+[2025-12-19 08:38:24,047][__main__][INFO] - Epoch 20/200
+[2025-12-19 08:38:31,968][__main__][INFO] - Train loss: 0.498322
+[2025-12-19 08:38:33,492][__main__][INFO] - Val loss: 0.610917, Val accuracy: 0.794400
+[2025-12-19 08:38:33,493][__main__][INFO] - Epoch 21/200
+[2025-12-19 08:38:41,998][__main__][INFO] - Train loss: 0.485129
+[2025-12-19 08:38:43,530][__main__][INFO] - Val loss: 0.629720, Val accuracy: 0.785333
+[2025-12-19 08:38:43,531][__main__][INFO] - Epoch 22/200
+[2025-12-19 08:38:51,938][__main__][INFO] - Train loss: 0.482453
+[2025-12-19 08:38:53,464][__main__][INFO] - Val loss: 0.597490, Val accuracy: 0.798800
+[2025-12-19 08:38:53,465][__main__][INFO] - Epoch 23/200
+[2025-12-19 08:39:01,640][__main__][INFO] - Train loss: 0.459029
+[2025-12-19 08:39:03,168][__main__][INFO] - Val loss: 0.619640, Val accuracy: 0.794000
+[2025-12-19 08:39:03,169][__main__][INFO] - Epoch 24/200
+[2025-12-19 08:39:11,109][__main__][INFO] - Train loss: 0.463915
+[2025-12-19 08:39:12,642][__main__][INFO] - Val loss: 0.616876, Val accuracy: 0.794800
+[2025-12-19 08:39:12,643][__main__][INFO] - Epoch 25/200
+[2025-12-19 08:39:20,576][__main__][INFO] - Train loss: 0.439720
+[2025-12-19 08:39:22,101][__main__][INFO] - Val loss: 0.626239, Val accuracy: 0.789600
+[2025-12-19 08:39:22,102][__main__][INFO] - Epoch 26/200
+[2025-12-19 08:39:29,986][__main__][INFO] - Train loss: 0.431130
+[2025-12-19 08:39:31,501][__main__][INFO] - Val loss: 0.588501, Val accuracy: 0.803467
+[2025-12-19 08:39:32,613][__main__][INFO] - New best - Test accuracy: 0.818500
+[2025-12-19 08:39:32,615][__main__][INFO] - Epoch 27/200
+[2025-12-19 08:39:40,490][__main__][INFO] - Train loss: 0.427501
+[2025-12-19 08:39:41,987][__main__][INFO] - Val loss: 0.585107, Val accuracy: 0.799867
+[2025-12-19 08:39:43,090][__main__][INFO] - New best - Test accuracy: 0.820400
+[2025-12-19 08:39:43,092][__main__][INFO] - Epoch 28/200
+[2025-12-19 08:39:51,036][__main__][INFO] - Train loss: 0.420317
+[2025-12-19 08:39:52,534][__main__][INFO] - Val loss: 0.564802, Val accuracy: 0.808533
+[2025-12-19 08:39:53,628][__main__][INFO] - New best - Test accuracy: 0.819200
+[2025-12-19 08:39:53,629][__main__][INFO] - Epoch 29/200
+[2025-12-19 08:40:01,612][__main__][INFO] - Train loss: 0.400772
+[2025-12-19 08:40:03,122][__main__][INFO] - Val loss: 0.592318, Val accuracy: 0.808800
+[2025-12-19 08:40:03,123][__main__][INFO] - Epoch 30/200
+[2025-12-19 08:40:11,126][__main__][INFO] - Train loss: 0.402793
+[2025-12-19 08:40:12,652][__main__][INFO] - Val loss: 0.569194, Val accuracy: 0.813733
+[2025-12-19 08:40:12,654][__main__][INFO] - Epoch 31/200
+[2025-12-19 08:40:20,565][__main__][INFO] - Train loss: 0.396595
+[2025-12-19 08:40:22,083][__main__][INFO] - Val loss: 0.554172, Val accuracy: 0.816800
+[2025-12-19 08:40:23,186][__main__][INFO] - New best - Test accuracy: 0.828600
+[2025-12-19 08:40:23,188][__main__][INFO] - Epoch 32/200
+[2025-12-19 08:40:31,046][__main__][INFO] - Train loss: 0.388777
+[2025-12-19 08:40:32,540][__main__][INFO] - Val loss: 0.540568, Val accuracy: 0.821467
+[2025-12-19 08:40:33,635][__main__][INFO] - New best - Test accuracy: 0.824400
+[2025-12-19 08:40:33,637][__main__][INFO] - Epoch 33/200
+[2025-12-19 08:40:41,573][__main__][INFO] - Train loss: 0.383837
+[2025-12-19 08:40:43,091][__main__][INFO] - Val loss: 0.578042, Val accuracy: 0.812933
+[2025-12-19 08:40:43,093][__main__][INFO] - Epoch 34/200
+[2025-12-19 08:40:51,110][__main__][INFO] - Train loss: 0.366018
+[2025-12-19 08:40:52,634][__main__][INFO] - Val loss: 0.552670, Val accuracy: 0.822533
+[2025-12-19 08:40:52,635][__main__][INFO] - Epoch 35/200
+[2025-12-19 08:41:00,489][__main__][INFO] - Train loss: 0.363116
+[2025-12-19 08:41:02,004][__main__][INFO] - Val loss: 0.558415, Val accuracy: 0.822800
+[2025-12-19 08:41:02,005][__main__][INFO] - Epoch 36/200
+[2025-12-19 08:41:09,984][__main__][INFO] - Train loss: 0.356204
+[2025-12-19 08:41:11,502][__main__][INFO] - Val loss: 0.571456, Val accuracy: 0.811067
+[2025-12-19 08:41:11,504][__main__][INFO] - Epoch 37/200
+[2025-12-19 08:41:19,653][__main__][INFO] - Train loss: 0.345482
+[2025-12-19 08:41:21,162][__main__][INFO] - Val loss: 0.585389, Val accuracy: 0.813067
+[2025-12-19 08:41:21,163][__main__][INFO] - Epoch 38/200
+[2025-12-19 08:41:29,056][__main__][INFO] - Train loss: 0.341937
+[2025-12-19 08:41:30,562][__main__][INFO] - Val loss: 0.567365, Val accuracy: 0.815600
+[2025-12-19 08:41:30,563][__main__][INFO] - Epoch 39/200
+[2025-12-19 08:41:38,450][__main__][INFO] - Train loss: 0.341865
+[2025-12-19 08:41:39,965][__main__][INFO] - Val loss: 0.571511, Val accuracy: 0.810400
+[2025-12-19 08:41:39,967][__main__][INFO] - Epoch 40/200
+[2025-12-19 08:41:47,841][__main__][INFO] - Train loss: 0.336075
+[2025-12-19 08:41:49,361][__main__][INFO] - Val loss: 0.564282, Val accuracy: 0.815467
+[2025-12-19 08:41:49,363][__main__][INFO] - Epoch 41/200
+[2025-12-19 08:41:57,670][__main__][INFO] - Train loss: 0.322544
+[2025-12-19 08:41:59,248][__main__][INFO] - Val loss: 0.558280, Val accuracy: 0.819333
+[2025-12-19 08:41:59,249][__main__][INFO] - Epoch 42/200
+[2025-12-19 08:42:07,182][__main__][INFO] - Train loss: 0.323558
+[2025-12-19 08:42:08,726][__main__][INFO] - Val loss: 0.560441, Val accuracy: 0.825200
+[2025-12-19 08:42:08,727][__main__][INFO] - Epoch 43/200
+[2025-12-19 08:42:16,632][__main__][INFO] - Train loss: 0.312749
+[2025-12-19 08:42:18,169][__main__][INFO] - Val loss: 0.570684, Val accuracy: 0.819600
+[2025-12-19 08:42:18,171][__main__][INFO] - Epoch 44/200
+[2025-12-19 08:42:26,446][__main__][INFO] - Train loss: 0.313421
+[2025-12-19 08:42:27,967][__main__][INFO] - Val loss: 0.563107, Val accuracy: 0.826267
+[2025-12-19 08:42:27,968][__main__][INFO] - Epoch 45/200
+[2025-12-19 08:42:35,911][__main__][INFO] - Train loss: 0.306559
+[2025-12-19 08:42:37,432][__main__][INFO] - Val loss: 0.544455, Val accuracy: 0.824533
+[2025-12-19 08:42:37,433][__main__][INFO] - Epoch 46/200
+[2025-12-19 08:42:45,762][__main__][INFO] - Train loss: 0.300108
+[2025-12-19 08:42:47,266][__main__][INFO] - Val loss: 0.570193, Val accuracy: 0.821333
+[2025-12-19 08:42:47,267][__main__][INFO] - Epoch 47/200
+[2025-12-19 08:42:55,304][__main__][INFO] - Train loss: 0.298417
+[2025-12-19 08:42:56,818][__main__][INFO] - Val loss: 0.546210, Val accuracy: 0.826800
+[2025-12-19 08:42:56,819][__main__][INFO] - Epoch 48/200
+[2025-12-19 08:43:04,680][__main__][INFO] - Train loss: 0.294997
+[2025-12-19 08:43:06,194][__main__][INFO] - Val loss: 0.563071, Val accuracy: 0.825867
+[2025-12-19 08:43:06,195][__main__][INFO] - Epoch 49/200
+[2025-12-19 08:43:14,091][__main__][INFO] - Train loss: 0.287145
+[2025-12-19 08:43:15,608][__main__][INFO] - Val loss: 0.554745, Val accuracy: 0.821867
+[2025-12-19 08:43:15,609][__main__][INFO] - Epoch 50/200
+[2025-12-19 08:43:23,533][__main__][INFO] - Train loss: 0.291027
+[2025-12-19 08:43:25,053][__main__][INFO] - Val loss: 0.579831, Val accuracy: 0.822933
+[2025-12-19 08:43:25,054][__main__][INFO] - Epoch 51/200
+[2025-12-19 08:43:32,901][__main__][INFO] - Train loss: 0.277882
+[2025-12-19 08:43:34,412][__main__][INFO] - Val loss: 0.567700, Val accuracy: 0.823467
+[2025-12-19 08:43:34,413][__main__][INFO] - Epoch 52/200
+[2025-12-19 08:43:42,464][__main__][INFO] - Train loss: 0.273738
+[2025-12-19 08:43:43,971][__main__][INFO] - Val loss: 0.587827, Val accuracy: 0.820000
+[2025-12-19 08:43:43,972][__main__][INFO] - Early stopping triggered after 20 patient epochs
+[2025-12-19 08:43:45,078][__main__][INFO] - Best test accuracy (early stopping): 0.828600
+[2025-12-19 08:43:45,080][__main__][INFO] - Final test accuracy: 0.826000
+[2025-12-19 08:43:45,080][__main__][INFO] - Convergence epoch: 8
+[2025-12-19 08:43:45,081][__main__][INFO] - Generalization gap: 0.126918
+[2025-12-19 08:43:45,088][__main__][INFO] - WandB run: https://wandb.ai/gengaru617-personal/2025-11-19/runs/comparative-1-resnet18-cifar10
+[2025-12-19 08:43:46,149][__main__][INFO] - Training completed in 4336.34 seconds
+[2025-12-19 08:43:46,151][__main__][INFO] - Metrics saved to .research/results/metrics.json
+[2025-12-19 08:43:47,502][__main__][INFO] - Training completed successfully
+=== [FULL EXPERIMENT] PASSED for comparative-1-resnet18-cifar10 at Fri Dec 19 08:43:47 UTC 2025 ===
