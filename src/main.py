@@ -13,10 +13,14 @@ logger = logging.getLogger(__name__)
 def main(cfg: DictConfig) -> None:
     """
     Main orchestrator that launches train.py as subprocess for a single run.
-    
+
     Args:
         cfg: Hydra configuration object
     """
+    # Support both 'run' and 'run_id' parameters
+    if "run" in cfg and cfg.run is not None and cfg.run_id is None:
+        cfg.run_id = cfg.run
+
     # Validate required parameters
     if "run_id" not in cfg or cfg.run_id is None:
         raise ValueError("run_id must be specified via CLI: run_id={run_id}")

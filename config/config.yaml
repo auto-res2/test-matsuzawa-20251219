@@ -1,9 +1,11 @@
 defaults:
   - _self_
-  - runs: proposed-resnet18-cifar10
+  - optional runs: ???
 
+run: null
 run_id: null
 mode: full  # trial or full
+results_dir: results
 
 wandb:
   entity: gengaru617-personal

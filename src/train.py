@@ -870,7 +870,11 @@ class Trainer:
 @hydra.main(config_path="../config", config_name="config", version_base="1.3")
 def main(cfg: DictConfig) -> None:
     """Entry point for train.py - called via python -m src.train."""
-    
+
+    # Support both 'run' and 'run_id' parameters
+    if "run" in cfg and cfg.run is not None and cfg.run_id is None:
+        cfg.run_id = cfg.run
+
     # Validate required parameters
     if "run_id" not in cfg or cfg.run_id is None:
         raise ValueError("run_id must be specified via CLI: run_id={run_id}")
