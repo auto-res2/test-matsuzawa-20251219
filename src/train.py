@@ -886,16 +886,38 @@ def main(cfg: DictConfig) -> None:
         raise ValueError(f"mode must be 'trial' or 'full', got {cfg.get('mode', 'MISSING')}")
 
     # Load run-specific config if not already merged
-    if "method" not in cfg:
-        run_config_path = Path("config") / "runs" / f"{cfg.run_id}.yaml"
-        if run_config_path.exists():
-            run_cfg = OmegaConf.load(run_config_path)
-            # Merge run config into the existing cfg object
-            # We need to merge in place by updating the cfg with run_cfg keys
-            for key in run_cfg:
-                cfg[key] = run_cfg[key]
-        else:
-            logger.warning(f"Run config not found: {run_config_path}")
+    run_config_path = Path("config") / "runs" / f"{cfg.run_id}.yaml"
+    if run_config_path.exists():
+        run_cfg = OmegaConf.load(run_config_path)
+        # Merge run config into cfg by merging key by key
+        for key, value in run_cfg.items():
+            cfg[key] = value
+    else:
+        logger.warning(f"Run config not found: {run_config_path}")
+
+    # Ensure required keys exist with safe defaults
+    if "training" not in cfg:
+        logger.warning("Config missing 'training' section, initializing with defaults")
+        cfg.training = OmegaConf.create({
+            "epochs": 200,
+            "batch_size": 128,
+            "learning_rate": 0.001,
+            "weight_decay": 0.0001,
+            "optimizer": "adamw",
+            "scheduler": "cosine",
+            "seed": 42,
+            "gradient_clip": 1.0,
+            "early_stopping": {"enabled": True, "patience": 20},
+            "additional_params": {}
+        })
+    if "wandb" not in cfg:
+        cfg.wandb = OmegaConf.create({"entity": "gengaru617-personal", "project": "2025-11-19", "mode": "online"})
+    if "optuna" not in cfg:
+        cfg.optuna = OmegaConf.create({"enabled": False, "n_trials": 0})
+    if "dataset" not in cfg:
+        raise ValueError(f"Config missing 'dataset' section. Check run config: config/runs/{cfg.run_id}.yaml")
+    if "model" not in cfg:
+        raise ValueError(f"Config missing 'model' section. Check run config: config/runs/{cfg.run_id}.yaml")
 
     # CRITICAL: Apply mode-based configuration AFTER loading run config
     if cfg.mode == "trial":
