@@ -109,3 +109,12 @@
 [2025-12-19 07:20:52,737][__main__][WARNING] - Run config not found: config/runs/proposed-resnet18-cifar10.yaml
 [2025-12-19 07:20:52,737][__main__][WARNING] - Config missing 'training' section, initializing with defaults
 [2025-12-19 07:20:53,251][__main__][ERROR] - Training failed with return code 1
+=== [UV SYNC] Start at Fri Dec 19 07:23:29 UTC 2025 ===
+=== [UV SYNC] Finished successfully at Fri Dec 19 07:23:29 UTC 2025 ===
+=== [TRIAL RUN] Start for proposed-resnet18-cifar10 at Fri Dec 19 07:23:29 UTC 2025 ===
+[2025-12-19 07:23:30,405][__main__][INFO] - Starting experiment: run_id=proposed-resnet18-cifar10, mode=trial
+[2025-12-19 07:23:30,405][__main__][INFO] - Results directory: .research/results
+[2025-12-19 07:23:30,405][__main__][INFO] - Executing: /workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/bin/python3 -u -m src.train run_id=proposed-resnet18-cifar10 results_dir=.research/results mode=trial
+[2025-12-19 07:23:37,145][__main__][WARNING] - Run config not found: config/runs/proposed-resnet18-cifar10.yaml
+[2025-12-19 07:23:37,145][__main__][WARNING] - Config missing 'training' section, initializing with defaults
+[2025-12-19 07:23:37,627][__main__][ERROR] - Training failed with return code 1

@@ -56,7 +56,7 @@ def main(cfg: DictConfig) -> None:
     ]
     
     logger.info(f"Executing: {' '.join(cmd)}")
-    result = subprocess.run(cmd, cwd=Path(__file__).parent)
+    result = subprocess.run(cmd, cwd=Path(__file__).parent.parent)
     
     if result.returncode != 0:
         logger.error(f"Training failed with return code {result.returncode}")
