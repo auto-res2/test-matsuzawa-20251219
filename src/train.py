@@ -871,6 +871,9 @@ class Trainer:
 def main(cfg: DictConfig) -> None:
     """Entry point for train.py - called via python -m src.train."""
 
+    # Disable struct mode to allow merging new keys from run config
+    OmegaConf.set_struct(cfg, False)
+
     # Support both 'run' and 'run_id' parameters
     if "run" in cfg and cfg.run is not None and cfg.run_id is None:
         cfg.run_id = cfg.run
@@ -878,7 +881,7 @@ def main(cfg: DictConfig) -> None:
     # Validate required parameters
     if "run_id" not in cfg or cfg.run_id is None:
         raise ValueError("run_id must be specified via CLI: run_id={run_id}")
-    
+
     if "mode" not in cfg or cfg.mode not in ["trial", "full"]:
         raise ValueError(f"mode must be 'trial' or 'full', got {cfg.get('mode', 'MISSING')}")
 
