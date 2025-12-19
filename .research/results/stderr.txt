@@ -1,0 +1,8 @@
+Downloading cpython-3.11.14-linux-x86_64-gnu (download) (29.1MiB)
+ Downloaded cpython-3.11.14-linux-x86_64-gnu (download)
+Using CPython 3.11.14
+Creating virtual environment at: .venv
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
+Resolved in 2ms
+Audited in 0.03ms
+warning: No `requires-python` value found in the workspace. Defaulting to `>=3.11`.
