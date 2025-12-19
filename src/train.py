@@ -15,6 +15,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR, LinearLR
 import wandb
 from omegaconf import DictConfig, OmegaConf
 import hydra
+from hydra.utils import get_original_cwd
 import optuna
 from optuna.trial import Trial
 
@@ -886,7 +887,9 @@ def main(cfg: DictConfig) -> None:
         raise ValueError(f"mode must be 'trial' or 'full', got {cfg.get('mode', 'MISSING')}")
 
     # Load run-specific config if not already merged
-    run_config_path = Path("config") / "runs" / f"{cfg.run_id}.yaml"
+    # Use hydra.utils.get_original_cwd() to resolve path correctly even when Hydra changes directories
+    original_cwd = get_original_cwd()
+    run_config_path = Path(original_cwd) / "config" / "runs" / f"{cfg.run_id}.yaml"
     if run_config_path.exists():
         run_cfg = OmegaConf.load(run_config_path)
         # Merge run config into cfg by merging key by key

@@ -62,11 +62,17 @@ class QuadraticModel(nn.Module):
 
 def build_model(model_config: DictConfig) -> nn.Module:
     """Factory function to build models from config."""
-    
-    model_name = model_config.name.lower()
+
+    # Use 'architecture' field if available, otherwise fall back to 'name'
+    # Remove hyphens and convert to lowercase for consistent matching
+    if hasattr(model_config, 'architecture') and model_config.architecture:
+        model_name = model_config.architecture.lower().replace("-", "")
+    else:
+        model_name = model_config.name.lower().replace("-", "")
+
     num_classes = model_config.get("num_classes", 10)
     pretrained = model_config.get("pretrained", False)
-    
+
     if model_name == "resnet18":
         model = ResNet18(num_classes=num_classes, pretrained=pretrained)
     elif model_name == "resnet50":
