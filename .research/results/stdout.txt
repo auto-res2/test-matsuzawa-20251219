@@ -42,3 +42,11 @@
 [2025-12-19 06:55:37,915][__main__][INFO] - Executing: /workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/bin/python3 -u -m src.train run_id=proposed-resnet18-cifar10 results_dir=.research/results mode=trial
 [2025-12-19 06:55:44,944][__main__][WARNING] - Run config not found: config/runs/proposed-resnet18-cifar10.yaml
 [2025-12-19 06:55:45,464][__main__][ERROR] - Training failed with return code 1
+=== [UV SYNC] Start at Fri Dec 19 06:58:09 UTC 2025 ===
+=== [UV SYNC] Finished successfully at Fri Dec 19 06:58:10 UTC 2025 ===
+=== [TRIAL RUN] Start for proposed-resnet18-cifar10 at Fri Dec 19 06:58:10 UTC 2025 ===
+[2025-12-19 06:58:10,732][__main__][INFO] - Starting experiment: run_id=proposed-resnet18-cifar10, mode=trial
+[2025-12-19 06:58:10,732][__main__][INFO] - Results directory: .research/results
+[2025-12-19 06:58:10,732][__main__][INFO] - Executing: /workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/bin/python3 -u -m src.train run_id=proposed-resnet18-cifar10 results_dir=.research/results mode=trial
+[2025-12-19 06:58:17,511][__main__][WARNING] - Run config not found: config/runs/proposed-resnet18-cifar10.yaml
+[2025-12-19 06:58:18,022][__main__][ERROR] - Training failed with return code 1
