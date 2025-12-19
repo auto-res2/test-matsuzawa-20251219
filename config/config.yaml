@@ -1,0 +1,14 @@
+run_id: null
+mode: full  # trial or full
+
+wandb:
+  entity: gengaru617-personal
+  project: 2025-11-19
+  mode: online  # Automatically set to "disabled" for trial_mode
+
+hydra:
+  run:
+    dir: ${results_dir}/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  output_subdir: .hydra
+  job:
+    chdir: false

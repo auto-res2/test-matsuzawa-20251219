@@ -1,0 +1,120 @@
+run_id: proposed-resnet18-cifar10
+method: SCAL (Spectral-Curriculum Adaptive Learning)
+method_type: proposed
+
+model:
+  name: ResNet-18
+  architecture: resnet18
+  pretrained: false
+  num_classes: 10
+  num_parameters: 11173962
+
+dataset:
+  name: CIFAR-10
+  num_classes: 10
+  num_samples_train: 50000
+  num_samples_test: 10000
+  split_ratios:
+    train: 0.85
+    validation: 0.15
+    test: 1.0
+  preprocessing:
+    normalize: true
+    mean: [0.4914, 0.4822, 0.4465]
+    std: [0.2470, 0.2435, 0.2616]
+    augmentation: true
+    augmentation_types:
+      - random_crop: {size: 32, padding: 4}
+      - random_horizontal_flip: {prob: 0.5}
+      - color_jitter: {brightness: 0.1, contrast: 0.1, saturation: 0.1, hue: 0.05}
+
+training:
+  learning_rate: 0.001
+  batch_size: 128
+  epochs: 200
+  optimizer: adamw
+  warmup_steps: 500
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  scheduler: cosine
+  seed: 42
+  early_stopping:
+    enabled: true
+    patience: 20
+    metric: validation_loss
+    mode: min
+  additional_params:
+    spectral_window_size: 5
+    spectral_rank: 20
+    curriculum_hidden_dim: 32
+    self_consistency_weight: 0.01
+    meta_learning_rate: 0.0001
+    meta_steps_per_epoch: 10
+
+optuna:
+  enabled: true
+  n_trials: 20
+  sampler: tpe
+  search_spaces:
+    - param_name: learning_rate
+      distribution_type: loguniform
+      low: 0.0001
+      high: 0.01
+    - param_name: weight_decay
+      distribution_type: loguniform
+      low: 1e-05
+      high: 0.001
+    - param_name: spectral_window_size
+      distribution_type: int
+      low: 1.0
+      high: 20.0
+    - param_name: curriculum_hidden_dim
+      distribution_type: categorical
+      choices: [16, 32, 64, 128]
+    - param_name: meta_learning_rate
+      distribution_type: loguniform
+      low: 1e-05
+      high: 0.001
+
+evaluation:
+  primary_metric: test_accuracy_at_early_stopping
+  secondary_metrics:
+    - convergence_speed_epochs
+    - generalization_gap_train_test
+    - curriculum_transferability_correlation
+    - wall_clock_time_overhead
+    - ablation_component_contribution
+  num_seeds: 10
+  confidence_interval: 0.95
+
+computation:
+  runner_label:
+    - self-hosted
+    - gpu-runner
+  hardware_requirements:
+    vram_gb: 80
+    ram_gb: 2048
+  expected_wall_clock_hours: 50.0
+
+components:
+  spectral_tracking:
+    enabled: true
+    method: randomized_svd
+    window_size: 5
+    rank: 20
+    complexity: O(d*log(d))
+  curriculum_learning:
+    enabled: true
+    architecture: 2-layer-mlp
+    hidden_dim: 32
+    input_features: [training_progress, spectral_ratio]
+    output_range: [0.0, 1.0]
+    regularization:
+      type: self_consistency
+      weight: 0.01
+  meta_optimization:
+    enabled: true
+    algorithm: maml
+    inner_loop_steps: 5
+    outer_loop_lr: 0.0001
+    validation_metric: loss
