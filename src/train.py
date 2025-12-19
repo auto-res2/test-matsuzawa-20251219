@@ -892,9 +892,8 @@ def main(cfg: DictConfig) -> None:
     run_config_path = Path(original_cwd) / "config" / "runs" / f"{cfg.run_id}.yaml"
     if run_config_path.exists():
         run_cfg = OmegaConf.load(run_config_path)
-        # Merge run config into cfg by merging key by key
-        for key, value in run_cfg.items():
-            cfg[key] = value
+        # Merge run config into cfg properly using OmegaConf.merge
+        cfg = OmegaConf.merge(cfg, run_cfg)
     else:
         logger.warning(f"Run config not found: {run_config_path}")
 
