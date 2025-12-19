@@ -1,3 +1,7 @@
+defaults:
+  - _self_
+  - runs: ???
+
 run_id: null
 mode: full  # trial or full
 
@@ -12,3 +16,7 @@ hydra:
   output_subdir: .hydra
   job:
     chdir: false
+    config:
+      override_dirname:
+        exclude_keys:
+          - run
