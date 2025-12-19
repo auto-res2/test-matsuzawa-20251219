@@ -1,0 +1,134 @@
+{
+  "primary_metric": "test_accuracy_at_early_stopping",
+  "metrics": {
+    "_runtime": {
+      "comparative-1-resnet18-cifar10": 4336.0,
+      "proposed-resnet18-cifar10": 4477.0
+    },
+    "_step": {
+      "comparative-1-resnet18-cifar10": 18550.0,
+      "proposed-resnet18-cifar10": 19004.0
+    },
+    "batch": {
+      "comparative-1-resnet18-cifar10": 330.0,
+      "proposed-resnet18-cifar10": 330.0
+    },
+    "best_val_loss": {
+      "comparative-1-resnet18-cifar10": 0.5405678344985186,
+      "proposed-resnet18-cifar10": 0.5510265705949169
+    },
+    "best_validation_loss": {
+      "comparative-1-resnet18-cifar10": 0.5405678344985186,
+      "proposed-resnet18-cifar10": 0.5510265705949169
+    },
+    "convergence_speed_epochs": {
+      "comparative-1-resnet18-cifar10": 8.0,
+      "proposed-resnet18-cifar10": 8.0
+    },
+    "epoch_time_seconds": {
+      "comparative-1-resnet18-cifar10": 1.5053553581237793,
+      "proposed-resnet18-cifar10": 1.5678081512451172
+    },
+    "final_test_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.826,
+      "proposed-resnet18-cifar10": 0.8418
+    },
+    "generalization_gap_train_test": {
+      "comparative-1-resnet18-cifar10": 0.12691786239521796,
+      "proposed-resnet18-cifar10": 0.10702564542260906
+    },
+    "gradient_norm": {
+      "comparative-1-resnet18-cifar10": 0.9999992528352716,
+      "proposed-resnet18-cifar10": 0.6100687000421684
+    },
+    "test_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.8244,
+      "proposed-resnet18-cifar10": 0.838
+    },
+    "test_accuracy_at_early_stopping": {
+      "comparative-1-resnet18-cifar10": 0.8286,
+      "proposed-resnet18-cifar10": 0.838
+    },
+    "test_class_0_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.88,
+      "proposed-resnet18-cifar10": 0.896
+    },
+    "test_class_1_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.911,
+      "proposed-resnet18-cifar10": 0.934
+    },
+    "test_class_2_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.829,
+      "proposed-resnet18-cifar10": 0.735
+    },
+    "test_class_3_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.692,
+      "proposed-resnet18-cifar10": 0.676
+    },
+    "test_class_4_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.787,
+      "proposed-resnet18-cifar10": 0.849
+    },
+    "test_class_5_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.715,
+      "proposed-resnet18-cifar10": 0.756
+    },
+    "test_class_6_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.915,
+      "proposed-resnet18-cifar10": 0.911
+    },
+    "test_class_7_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.778,
+      "proposed-resnet18-cifar10": 0.873
+    },
+    "test_class_8_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.887,
+      "proposed-resnet18-cifar10": 0.92
+    },
+    "test_class_9_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.866,
+      "proposed-resnet18-cifar10": 0.868
+    },
+    "total_training_time_seconds": {
+      "comparative-1-resnet18-cifar10": 4336.338555812836,
+      "proposed-resnet18-cifar10": 4477.527177095413
+    },
+    "train_loss": {
+      "comparative-1-resnet18-cifar10": 0.4606214761734009,
+      "proposed-resnet18-cifar10": 0.12099981307983398
+    },
+    "training_progress": {
+      "comparative-1-resnet18-cifar10": 0.255,
+      "proposed-resnet18-cifar10": 0.31
+    },
+    "val_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.82,
+      "proposed-resnet18-cifar10": 0.8336
+    },
+    "val_batch": {
+      "comparative-1-resnet18-cifar10": 50.0,
+      "proposed-resnet18-cifar10": 50.0
+    },
+    "val_batch_accuracy": {
+      "comparative-1-resnet18-cifar10": 0.859375,
+      "proposed-resnet18-cifar10": 0.8515625
+    },
+    "val_batch_loss": {
+      "comparative-1-resnet18-cifar10": 0.4663437604904175,
+      "proposed-resnet18-cifar10": 0.5801595449447632
+    },
+    "val_loss": {
+      "comparative-1-resnet18-cifar10": 0.5878267773127152,
+      "proposed-resnet18-cifar10": 0.611099796274961
+    }
+  },
+  "best_proposed": {
+    "run_id": "proposed-resnet18-cifar10",
+    "value": 0.838
+  },
+  "best_baseline": {
+    "run_id": "comparative-1-resnet18-cifar10",
+    "value": 0.8286
+  },
+  "gap": 1.1344436398744826
+}

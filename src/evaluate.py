@@ -119,54 +119,90 @@ def export_run_metrics(run_data: Dict[str, Any], output_dir: Path) -> Path:
 
 def generate_run_figures(run_data: Dict[str, Any], output_dir: Path) -> List[Path]:
     """Generate per-run visualization figures."""
-    
+
     run_id = run_data["run_id"]
     history_df = run_data["history"]
-    
+
     figures = []
-    
+
     if history_df is not None and len(history_df) > 0:
+        # Set publication-quality style
+        plt.rcParams.update({
+            'font.size': 12,
+            'axes.labelsize': 14,
+            'axes.titlesize': 16,
+            'xtick.labelsize': 11,
+            'ytick.labelsize': 11,
+            'legend.fontsize': 12,
+            'figure.titlesize': 16,
+            'lines.linewidth': 2,
+            'lines.markersize': 4,
+        })
+
         # Learning curve: train/val loss
-        plt.figure(figsize=(10, 6))
-        
+        fig, ax = plt.subplots(figsize=(10, 6))
+
         if "train_loss" in history_df.columns:
-            plt.plot(history_df["train_loss"], label="Train Loss", marker="o", markersize=3)
+            # Plot line without markers for cleaner look
+            ax.plot(history_df.index, history_df["train_loss"], label="Train Loss",
+                   linewidth=1.5, alpha=0.8, color='#1f77b4')
         if "val_loss" in history_df.columns:
-            plt.plot(history_df["val_loss"], label="Val Loss", marker="s", markersize=3)
-        
-        plt.xlabel("Epoch")
-        plt.ylabel("Loss")
-        plt.title(f"Learning Curve - {run_id}")
-        plt.legend()
+            # Only plot every Nth point to reduce clutter
+            val_loss = history_df["val_loss"].dropna()
+            ax.plot(val_loss.index, val_loss.values, label="Val Loss",
+                   linewidth=2, marker='o', markersize=5, markevery=max(1, len(val_loss)//20),
+                   alpha=0.9, color='#ff7f0e')
+
+        ax.set_xlabel("Epoch", fontsize=14)
+        ax.set_ylabel("Loss", fontsize=14)
+        ax.set_title(f"Training and Validation Loss - {run_id.replace('-', ' ').title()}",
+                    fontsize=16, pad=20)
+        ax.legend(loc='best', frameon=True, fancybox=True, shadow=True)
+        ax.grid(True, alpha=0.3, linestyle='--')
         plt.tight_layout()
-        
+
         fig_path = output_dir / f"{run_id}_learning_curve.pdf"
-        plt.savefig(fig_path, dpi=150, bbox_inches="tight")
+        plt.savefig(fig_path, dpi=300, bbox_inches="tight")
         plt.close()
         figures.append(fig_path)
-        
+
         logger.info(f"Generated learning curve: {fig_path}")
-        
+
         # Accuracy curve
         if "val_accuracy" in history_df.columns:
-            plt.figure(figsize=(10, 6))
-            plt.plot(history_df["val_accuracy"], label="Val Accuracy", marker="o", markersize=3)
-            plt.xlabel("Epoch")
-            plt.ylabel("Accuracy")
-            plt.title(f"Validation Accuracy - {run_id}")
-            best_val = history_df["val_accuracy"].max()
-            plt.axhline(y=best_val, color="r", linestyle="--",
-                       label=f"Best: {best_val:.4f}")
-            plt.legend()
+            fig, ax = plt.subplots(figsize=(10, 6))
+            val_acc = history_df["val_accuracy"].dropna()
+
+            # Plot with reduced markers
+            ax.plot(val_acc.index, val_acc.values, label="Val Accuracy",
+                   linewidth=2, marker='o', markersize=5, markevery=max(1, len(val_acc)//20),
+                   color='#2ca02c', alpha=0.9)
+
+            ax.set_xlabel("Epoch", fontsize=14)
+            ax.set_ylabel("Accuracy", fontsize=14)
+            ax.set_title(f"Validation Accuracy - {run_id.replace('-', ' ').title()}",
+                        fontsize=16, pad=20)
+
+            best_val = val_acc.max()
+            ax.axhline(y=best_val, color="r", linestyle="--", linewidth=2,
+                      label=f"Best: {best_val:.4f}", alpha=0.7)
+
+            # Set y-axis to focus on relevant range
+            y_min, y_max = val_acc.min(), val_acc.max()
+            y_margin = (y_max - y_min) * 0.1
+            ax.set_ylim(max(0, y_min - y_margin), min(1.0, y_max + y_margin))
+
+            ax.legend(loc='best', frameon=True, fancybox=True, shadow=True)
+            ax.grid(True, alpha=0.3, linestyle='--')
             plt.tight_layout()
-            
+
             fig_path = output_dir / f"{run_id}_val_accuracy.pdf"
-            plt.savefig(fig_path, dpi=150, bbox_inches="tight")
+            plt.savefig(fig_path, dpi=300, bbox_inches="tight")
             plt.close()
             figures.append(fig_path)
-            
+
             logger.info(f"Generated accuracy curve: {fig_path}")
-    
+
     return figures
 
 
@@ -204,8 +240,15 @@ def aggregate_metrics(run_ids: List[str], results_dir: Path, wandb_config: Dict[
             if metric_name in run_data["summary"]:
                 value = run_data["summary"][metric_name]
                 if value is not None:
-                    metric_values[run_id] = float(value)
-        
+                    # Only convert numeric values, skip dicts/lists
+                    if isinstance(value, (int, float)):
+                        metric_values[run_id] = float(value)
+                    elif isinstance(value, str):
+                        try:
+                            metric_values[run_id] = float(value)
+                        except (ValueError, TypeError):
+                            pass  # Skip non-numeric strings
+
         if metric_values:
             aggregated["metrics"][metric_name] = metric_values
     
@@ -250,97 +293,127 @@ def generate_comparison_figures(
     output_dir: Path,
 ) -> List[Path]:
     """Generate comparison figures across runs."""
-    
+
     comparison_dir = output_dir / "comparison"
     comparison_dir.mkdir(parents=True, exist_ok=True)
-    
+
     figures = []
-    
+
+    # Set publication-quality style
+    plt.rcParams.update({
+        'font.size': 12,
+        'axes.labelsize': 14,
+        'axes.titlesize': 16,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12,
+        'legend.fontsize': 12,
+    })
+
     # Bar chart comparing test accuracy
     run_ids = list(all_runs.keys())
     test_accs = []
-    
+
     for run_id in run_ids:
         acc = all_runs[run_id].get("summary", {}).get("test_accuracy_at_early_stopping")
         if acc is not None:
             test_accs.append(float(acc))
         else:
             test_accs.append(0.0)
-    
+
     if test_accs:
-        plt.figure(figsize=(12, 6))
+        # Determine appropriate y-axis range
+        min_acc = min(test_accs)
+        max_acc = max(test_accs)
+        acc_range = max_acc - min_acc
+        y_min = max(0, min_acc - acc_range * 0.3)
+        y_max = min(1.0, max_acc + acc_range * 0.1)
+
+        fig, ax = plt.subplots(figsize=(10, 6))
         x_pos = np.arange(len(run_ids))
-        colors = ["green" if "proposed" in rid else "blue" for rid in run_ids]
-        bars = plt.bar(x_pos, test_accs, color=colors, alpha=0.7)
-        plt.xticks(x_pos, run_ids, rotation=45, ha="right")
-        plt.ylabel("Test Accuracy")
-        plt.title("Test Accuracy Comparison Across Methods")
-        
-        # Annotate values
+
+        # Use professional color scheme
+        colors = ["#2ecc71" if "proposed" in rid else "#3498db" for rid in run_ids]
+        bars = ax.bar(x_pos, test_accs, color=colors, alpha=0.85, edgecolor='black', linewidth=1.2)
+
+        # Clean labels
+        clean_labels = [rid.replace('-', '\n') for rid in run_ids]
+        ax.set_xticks(x_pos)
+        ax.set_xticklabels(clean_labels, fontsize=11)
+
+        ax.set_ylabel("Test Accuracy at Early Stopping", fontsize=14)
+        ax.set_title("Test Accuracy Comparison Across Methods", fontsize=16, pad=20)
+        ax.set_ylim(y_min, y_max)
+
+        # Annotate values on bars
         for i, (rid, acc) in enumerate(zip(run_ids, test_accs)):
-            plt.text(i, acc + 0.01, f"{acc:.4f}", ha="center", va="bottom", fontsize=10)
-        
+            ax.text(i, acc + acc_range * 0.02, f"{acc:.4f}",
+                   ha="center", va="bottom", fontsize=11, fontweight='bold')
+
+        ax.grid(True, alpha=0.3, axis='y', linestyle='--')
         plt.tight_layout()
+
         fig_path = comparison_dir / "comparison_test_accuracy_bar.pdf"
-        plt.savefig(fig_path, dpi=150, bbox_inches="tight")
+        plt.savefig(fig_path, dpi=300, bbox_inches="tight")
         plt.close()
         figures.append(fig_path)
-        
+
         logger.info(f"Generated comparison bar chart: {fig_path}")
-        
-        # Box plot
-        plt.figure(figsize=(10, 6))
-        plt.boxplot([test_accs], labels=["Methods"], widths=0.5)
-        plt.ylabel("Test Accuracy")
-        plt.title("Test Accuracy Distribution")
-        plt.grid(True, alpha=0.3)
-        plt.tight_layout()
-        
-        fig_path = comparison_dir / "comparison_accuracy_boxplot.pdf"
-        plt.savefig(fig_path, dpi=150, bbox_inches="tight")
-        plt.close()
-        figures.append(fig_path)
-        
-        logger.info(f"Generated box plot: {fig_path}")
-        
+
         # Paired comparison for statistical significance (if 2 methods)
         if len(run_ids) >= 2:
             proposed_ids = [rid for rid in run_ids if "proposed" in rid]
             baseline_ids = [rid for rid in run_ids if "comparative" in rid or "baseline" in rid]
-            
+
             if proposed_ids and baseline_ids:
                 proposed_acc = all_runs[proposed_ids[0]]["summary"].get("test_accuracy_at_early_stopping", 0)
                 baseline_acc = all_runs[baseline_ids[0]]["summary"].get("test_accuracy_at_early_stopping", 0)
-                
+
                 if proposed_acc and baseline_acc:
                     # Create comparison visualization
-                    plt.figure(figsize=(8, 6))
+                    fig, ax = plt.subplots(figsize=(8, 6))
                     methods = ["Proposed", "Baseline"]
                     accs = [float(proposed_acc), float(baseline_acc)]
-                    colors_cmp = ["green", "blue"]
-                    
-                    bars = plt.bar(methods, accs, color=colors_cmp, alpha=0.7)
-                    plt.ylabel("Test Accuracy at Early Stopping")
-                    plt.title("Proposed vs Baseline Method")
-                    
+                    colors_cmp = ["#2ecc71", "#3498db"]
+
+                    # Use focused y-axis range
+                    min_val = min(accs)
+                    max_val = max(accs)
+                    val_range = max_val - min_val
+                    y_min_cmp = max(0, min_val - val_range * 0.3)
+                    y_max_cmp = min(1.0, max_val + val_range * 0.2)
+
+                    bars = ax.bar(methods, accs, color=colors_cmp, alpha=0.85,
+                                 edgecolor='black', linewidth=1.5, width=0.6)
+                    ax.set_ylabel("Test Accuracy at Early Stopping", fontsize=14)
+                    ax.set_title("Proposed vs Baseline Method Comparison", fontsize=16, pad=20)
+                    ax.set_ylim(y_min_cmp, y_max_cmp)
+
+                    # Annotate bars
                     for bar, acc in zip(bars, accs):
                         height = bar.get_height()
-                        plt.text(bar.get_x() + bar.get_width()/2., height,
-                                f"{acc:.4f}", ha="center", va="bottom", fontsize=12)
-                    
+                        ax.text(bar.get_x() + bar.get_width()/2., height + val_range * 0.02,
+                               f"{acc:.4f}", ha="center", va="bottom", fontsize=13, fontweight='bold')
+
                     # Compute improvement percentage
                     improvement = ((float(proposed_acc) - float(baseline_acc)) / float(baseline_acc)) * 100
-                    plt.text(0.5, max(accs) * 0.95, f"Improvement: {improvement:.2f}%",
-                            ha="center", fontsize=11, bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.5))
-                    
+
+                    # Add improvement annotation with better positioning
+                    ax.text(0.5, y_min_cmp + (y_max_cmp - y_min_cmp) * 0.85,
+                           f"Relative Improvement: {improvement:+.2f}%",
+                           ha="center", fontsize=12, fontweight='bold',
+                           bbox=dict(boxstyle="round,pad=0.5", facecolor="#f39c12",
+                                   edgecolor='black', linewidth=1.5, alpha=0.9))
+
+                    ax.grid(True, alpha=0.3, axis='y', linestyle='--')
                     plt.tight_layout()
+
                     fig_path = comparison_dir / "comparison_proposed_vs_baseline.pdf"
-                    plt.savefig(fig_path, dpi=150, bbox_inches="tight")
+                    plt.savefig(fig_path, dpi=300, bbox_inches="tight")
                     plt.close()
                     figures.append(fig_path)
-                    
+
                     logger.info(f"Generated proposed vs baseline comparison: {fig_path}")
-    
+
     return figures
 
 
