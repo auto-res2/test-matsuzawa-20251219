@@ -1,6 +1,6 @@
 defaults:
   - _self_
-  - runs: ???
+  - runs: proposed-resnet18-cifar10
 
 run_id: null
 mode: full  # trial or full
