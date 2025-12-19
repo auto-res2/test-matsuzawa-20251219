@@ -133,3 +133,33 @@
 [2025-12-19 07:28:26,980][__main__][INFO] - Train samples: 256, Val samples: 128, Test samples: 128
 [2025-12-19 07:28:26,981][__main__][INFO] - Building model: ResNet-18
 [2025-12-19 07:28:27,867][__main__][ERROR] - Training failed with return code 1
+=== [UV SYNC] Start at Fri Dec 19 07:30:06 UTC 2025 ===
+=== [UV SYNC] Finished successfully at Fri Dec 19 07:30:07 UTC 2025 ===
+=== [TRIAL RUN] Start for proposed-resnet18-cifar10 at Fri Dec 19 07:30:07 UTC 2025 ===
+[2025-12-19 07:30:08,174][__main__][INFO] - Starting experiment: run_id=proposed-resnet18-cifar10, mode=trial
+[2025-12-19 07:30:08,174][__main__][INFO] - Results directory: .research/results
+[2025-12-19 07:30:08,175][__main__][INFO] - Executing: /workspace/actions-runner/_work/test-matsuzawa-20251219/test-matsuzawa-20251219/.venv/bin/python3 -u -m src.train run_id=proposed-resnet18-cifar10 results_dir=.research/results mode=trial
+[2025-12-19 07:30:18,284][__main__][INFO] - Using device: cuda
+[2025-12-19 07:30:18,285][__main__][INFO] - Results directory: .research/results
+[2025-12-19 07:30:18,285][__main__][INFO] - Starting training: proposed-resnet18-cifar10
+[2025-12-19 07:30:18,285][__main__][INFO] - Loading CIFAR-10 dataset...
+[2025-12-19 07:30:18,285][src.preprocess][INFO] - Loading CIFAR-10 from .cache
+[2025-12-19 07:30:33,387][src.preprocess][INFO] - Dataset loaded: 50000 train, 10000 test samples
+[2025-12-19 07:30:33,395][__main__][INFO] - Train samples: 256, Val samples: 128, Test samples: 128
+[2025-12-19 07:30:33,396][__main__][INFO] - Building model: ResNet-18
+[2025-12-19 07:30:33,664][__main__][INFO] - Model parameters: total=11181642, trainable=11181642
+[2025-12-19 07:30:33,664][__main__][INFO] - Using hyperparameters: {'learning_rate': 0.001, 'weight_decay': 0.0001}
+[2025-12-19 07:30:33,664][__main__][INFO] - Setting up AdamW optimizer
+[2025-12-19 07:30:33,665][__main__][INFO] - Epoch 1/1
+[2025-12-19 07:30:34,416][__main__][INFO] - Train loss: 2.422560
+[2025-12-19 07:30:34,615][__main__][INFO] - Val loss: 2.282771, Val accuracy: 0.070312
+[2025-12-19 07:30:34,805][__main__][INFO] - New best - Test accuracy: 0.101562
+[2025-12-19 07:30:34,932][__main__][INFO] - Best test accuracy (early stopping): 0.101562
+[2025-12-19 07:30:34,933][__main__][INFO] - Final test accuracy: 0.101562
+[2025-12-19 07:30:34,933][__main__][INFO] - Convergence epoch: 0
+[2025-12-19 07:30:34,933][__main__][INFO] - Generalization gap: 0.139789
+[2025-12-19 07:30:34,933][__main__][INFO] - Training completed in 16.65 seconds
+[2025-12-19 07:30:34,933][__main__][INFO] - Metrics saved to .research/results/metrics.json
+[2025-12-19 07:30:36,027][__main__][INFO] - Training completed successfully
+=== [TRIAL RUN] PASSED for proposed-resnet18-cifar10 at Fri Dec 19 07:30:36 UTC 2025 ===
+

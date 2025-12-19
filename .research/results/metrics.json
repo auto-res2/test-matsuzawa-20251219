@@ -1,0 +1,29 @@
+{
+  "test_accuracy_at_early_stopping": 0.1015625,
+  "final_test_accuracy": 0.1015625,
+  "convergence_speed_epochs": 0,
+  "best_validation_loss": 2.282771110534668,
+  "generalization_gap_train_test": 0.13978934288024902,
+  "total_training_time_seconds": 16.647969961166382,
+  "train_losses": [
+    2.422560453414917
+  ],
+  "val_losses": [
+    2.282771110534668
+  ],
+  "val_accuracies": [
+    0.0703125
+  ],
+  "per_class_accuracy": {
+    "class_0": 0.6923076923076923,
+    "class_1": 0.0,
+    "class_2": 0.0,
+    "class_3": 0.0,
+    "class_4": 0.1,
+    "class_5": 0.1111111111111111,
+    "class_6": 0.0,
+    "class_7": 0.0,
+    "class_8": 0.0,
+    "class_9": 0.18181818181818182
+  }
+}
