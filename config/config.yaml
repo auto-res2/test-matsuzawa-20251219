@@ -1,6 +1,5 @@
 defaults:
   - _self_
-  - optional: runs/${run_id}
 
 run: null
 run_id: null
