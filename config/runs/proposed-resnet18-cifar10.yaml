@@ -1,3 +1,6 @@
+defaults:
+  - _self_
+
 run_id: proposed-resnet18-cifar10
 method: SCAL (Spectral-Curriculum Adaptive Learning)
 method_type: proposed
