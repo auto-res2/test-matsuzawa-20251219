@@ -881,15 +881,7 @@ def main(cfg: DictConfig) -> None:
     
     if "mode" not in cfg or cfg.mode not in ["trial", "full"]:
         raise ValueError(f"mode must be 'trial' or 'full', got {cfg.get('mode', 'MISSING')}")
-    
-    # CRITICAL: Apply mode-based configuration BEFORE loading run config
-    if cfg.mode == "trial":
-        cfg.wandb.mode = "disabled"
-        cfg.training.epochs = 1
-        cfg.optuna.n_trials = 0
-    elif cfg.mode == "full":
-        cfg.wandb.mode = "online"
-    
+
     # Load run-specific config if not already merged
     if "method" not in cfg:
         run_config_path = Path("config") / "runs" / f"{cfg.run_id}.yaml"
@@ -898,6 +890,14 @@ def main(cfg: DictConfig) -> None:
             cfg = OmegaConf.merge(cfg, run_cfg)
         else:
             logger.warning(f"Run config not found: {run_config_path}")
+
+    # CRITICAL: Apply mode-based configuration AFTER loading run config
+    if cfg.mode == "trial":
+        cfg.wandb.mode = "disabled"
+        cfg.training.epochs = 1
+        cfg.optuna.n_trials = 0
+    elif cfg.mode == "full":
+        cfg.wandb.mode = "online"
     
     # Set random seeds
     np.random.seed(cfg.training.seed)
